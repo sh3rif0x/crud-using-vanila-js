@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Users App</title>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <div id="formContainer">
+
+        <form id="user-form">
+            <div id="form-inputs">
+                <input type="text" id="firstName" name="firstName" placeholder="First Name" value="Ahmed" required>
+
+                <input type="text" id="lastName" name="lastName" placeholder="Last Name" value="Mohamed" required>
+
+                <input type="email" id="email" name="email" placeholder="Email" value="ahmed.mohamed@gmail.com" required>
+
+                <input type="tel" id="phone" name="phone" placeholder="Phone Number" value="01012345678">
+
+                <input type="text" id="address" name="address" placeholder="Address" value="Cairo, Egypt">
+
+                <input type="number" id="age" name="age" placeholder="Age" value="24">
+
+                <input type="text" id="job" name="job" placeholder="Job Title" value="Frontend Developer">
+
+                <input type="number" id="salary" name="salary" placeholder="Salary" value="12000">
+            </div>
+            <button type="submit">
+        Add User
+    </button> <button id="clear-btn" type="button">delete All users</button>
+
+        </form>
+    </div>
+    <div id="users-table">
+
+    </div>
+
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
