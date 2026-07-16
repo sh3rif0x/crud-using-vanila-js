@@ -1,42 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #f5f5f5;
+    padding: 30px;
+}
+
+
+/* ===========================
+   Form
+=========================== */
+
 #formContainer {
-    min-width: 100%;
-    height: 300px;
+    width: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
-    background-color: red;
+    margin-bottom: 40px;
+}
+
+#user-form {
+    width: min(100%, 900px);
+    background: #fff;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .15);
 }
 
 #form-inputs {
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
+    gap: 15px;
     justify-content: center;
 }
 
-#user-form {
-    background-color: rgb(166, 162, 162);
-    border: 3px white solid;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+#form-inputs input {
+    height: 50px;
+    min-width: 200px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: .3s;
 }
 
-#user-form input,
+#form-inputs input:focus {
+    border-color: dodgerblue;
+    box-shadow: 0 0 5px rgba(30, 144, 255, .3);
+}
+
+
+/* ===========================
+   Buttons
+=========================== */
+
 button {
-    height: 30px;
-    min-width: 0px;
-    width: 100%;
-    max-width: 183px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .3s;
+    font-size: 15px;
+    font-weight: bold;
 }
 
-@media (max-width:1000px) {
-    #user-form {
+#add-btn {
+    background: #22c55e;
+    color: white;
+}
+
+#add-btn:hover {
+    background: #16a34a;
+}
+
+#clear-btn {
+    background: #ef4444;
+    color: white;
+}
+
+#clear-btn:hover {
+    background: #dc2626;
+}
+
+
+/* ===========================
+   Table
+=========================== */
+
+#users-table {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
+}
+
+thead {
+    background: #2563eb;
+    color: white;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+tbody tr:nth-child(even) {
+    background: #f8f8f8;
+}
+
+tbody tr:hover {
+    background: #ececec;
+}
+
+td input {
+    width: 100%;
+    min-width: 0;
+    height: 35px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+td button {
+    width: 100%;
+    margin: 3px 0;
+}
+
+td button:first-child {
+    background: #3b82f6;
+    color: white;
+}
+
+td button:first-child:hover {
+    background: #2563eb;
+}
+
+td button:last-child {
+    background: #ef4444;
+    color: white;
+}
+
+td button:last-child:hover {
+    background: #dc2626;
+}
+
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    #form-inputs {
         flex-direction: column;
-        align-items: center;
-        display: flex;
-        border: black solid 3px;
-        min-width: 0;
+    }
+    #form-inputs input {
         width: 100%;
+        min-width: 0;
+    }
+    table {
+        table-layout: auto;
+        font-size: 12px;
+    }
+    th,
+    td {
+        padding: 8px;
+        font-size: 12px;
+    }
+    td input {
+        font-size: 12px;
+        min-width: 0;
+    }
+    td button {
+        width: 100%;
+        padding: 8px;
+        font-size: 12px;
     }
 }

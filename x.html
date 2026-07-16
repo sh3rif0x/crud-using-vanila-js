@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multiple Inline Edit</title>
+
+<style>
+.item-card{
+    width:350px;
+    margin:15px auto;
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#f9f9f9;
+}
+
+.text-view{
+    flex:1;
+}
+
+.input-edit{
+    display:none;
+    flex:1;
+    padding:5px;
+}
+
+.btn{
+    padding:6px 12px;
+    cursor:pointer;
+    border:none;
+    border-radius:5px;
+    color:white;
+}
+
+.btn-edit{
+    background:#007bff;
+}
+
+.btn-save{
+    background:#28a745;
+}
+</style>
+</head>
+<body>
+
+<div class="item-card">
+    <span class="text-view">Learn HTML</span>
+    <input class="input-edit" type="text">
+    <button class="btn btn-edit">Edit</button>
+</div>
+
+<div class="item-card">
+    <span class="text-view">Learn CSS</span>
+    <input class="input-edit" type="text">
+    <button class="btn btn-edit">Edit</button>
+</div>
+
+<div class="item-card">
+    <span class="text-view">Learn JavaScript</span>
+    <input class="input-edit" type="text">
+    <button class="btn btn-edit">Edit</button>
+</div>
+
+<script>
+const cards = document.querySelectorAll(".item-card");
+
+cards.forEach((card) => {
+
+    const text = card.querySelector(".text-view");
+    const input = card.querySelector(".input-edit");
+    const button = card.querySelector(".btn");
+
+    let isEditing = false;
+
+    button.addEventListener("click", () => {
+
+        if (!isEditing) {
+
+            isEditing = true;
+
+            input.value = text.textContent;
+
+            text.style.display = "none";
+            input.style.display = "block";
+
+            button.textContent = "Save";
+            button.classList.remove("btn-edit");
+            button.classList.add("btn-save");
+
+            input.focus();
+
+        } else {
+
+            isEditing = false;
+
+            text.textContent = input.value;
+
+            text.style.display = "block";
+            input.style.display = "none";
+
+            button.textContent = "Edit";
+            button.classList.remove("btn-save");
+            button.classList.add("btn-edit");
+
+            console.log("Saved:", text.textContent);
+        }
+
+    });
+
+    input.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+            button.click();
+        }
+    });
+
+});
+</script>
+
+</body>
+</html>
